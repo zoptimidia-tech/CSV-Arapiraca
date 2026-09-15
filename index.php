@@ -4,7 +4,7 @@ if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 $csrfToken = $_SESSION['csrf_token'];
-$whatsappNumber = '5582999999999'; // Substitua pelo WhatsApp oficial do polo.
+$whatsappNumber = '55829999577602'; // Substitua pelo WhatsApp oficial do polo.
 $whatsappMessage = rawurlencode('Olá! Quero conhecer os cursos e condições do Polo Arapiraca.');
 ?>
 <!doctype html>
