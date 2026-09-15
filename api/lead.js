@@ -12,11 +12,13 @@ export default async function handler(req, res) {
 
   try {
     const body = req.body || {};
-    const name = text(body.name);
+    const name = text(body.name).replace(/\s+/g, ' ');
     const phone = text(body.phone);
     const course = text(body.course);
 
-    if (name.length < 3 || name.length > 120) {
+    // Aceita nomes brasileiros com acentos, espaços e hífen, mas rejeita
+    // números, símbolos isolados e valores muito curtos.
+    if (name.length < 2 || name.length > 120 || !/\p{L}/u.test(name)) {
       return json(res, 422, { success: false, message: 'Informe um nome válido.' });
     }
 
