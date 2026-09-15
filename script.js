@@ -23,7 +23,10 @@
   form?.addEventListener('submit', async event => {
     event.preventDefault(); status.textContent = ''; status.className = 'form-status';
     const name = form.elements.name, tel = form.elements.phone, course = form.elements.course;
-    setError(name, name.value.trim().length < 3 ? 'Informe seu nome completo.' : '');
+    const normalizedName = name.value.trim().replace(/\s+/g, ' ');
+    name.value = normalizedName;
+    const hasNameCharacters = /\p{L}/u.test(normalizedName);
+    setError(name, normalizedName.length < 2 || !hasNameCharacters ? 'Informe um nome válido.' : '');
     setError(tel, tel.value.replace(/\D/g, '').length < 10 ? 'Informe um WhatsApp válido com DDD.' : '');
     setError(course, !course.value ? 'Selecione uma área de interesse.' : '');
     if (form.querySelector('.invalid')) return;

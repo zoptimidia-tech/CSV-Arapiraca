@@ -3,8 +3,8 @@ session_start();
 header('Content-Type: application/json; charset=utf-8');
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['message' => 'Método não permitido.']); exit; }
 if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) { http_response_code(419); echo json_encode(['message' => 'Sessão expirada. Atualize a página e tente novamente.']); exit; }
-$name = trim((string)($_POST['name'] ?? '')); $phone = trim((string)($_POST['phone'] ?? '')); $course = trim((string)($_POST['course'] ?? ''));
-if (mb_strlen($name) < 3 || mb_strlen($name) > 120) { http_response_code(422); echo json_encode(['message' => 'Informe um nome válido.']); exit; }
+$name = preg_replace('/\s+/u', ' ', trim((string)($_POST['name'] ?? ''))); $phone = trim((string)($_POST['phone'] ?? '')); $course = trim((string)($_POST['course'] ?? ''));
+if (mb_strlen($name) < 2 || mb_strlen($name) > 120 || !preg_match('/\p{L}/u', $name)) { http_response_code(422); echo json_encode(['message' => 'Informe um nome válido.']); exit; }
 $digits = preg_replace('/\D+/', '', $phone);
 if (strlen($digits) < 10 || strlen($digits) > 13) { http_response_code(422); echo json_encode(['message' => 'Informe um WhatsApp válido com DDD.']); exit; }
 $allowedCourses = ['Pedagogia','Análise e Desenvolvimento de Sistemas','Administração','Nutrição','Ainda não decidi'];
