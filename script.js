@@ -22,7 +22,16 @@
   const setError = (field, message) => { const wrap = field.closest('.field'); wrap.classList.toggle('invalid', Boolean(message)); wrap.querySelector('.error-message').textContent = message || ''; };
   form?.addEventListener('submit', async event => {
     event.preventDefault(); status.textContent = ''; status.className = 'form-status';
-    const name = form.elements.name, tel = form.elements.phone, course = form.elements.course;
+    const name = document.getElementById('name');
+    const tel = document.getElementById('phone');
+    const course = document.getElementById('course');
+
+    if (!name || !tel || !course) {
+      status.className = 'form-status error';
+      status.textContent = 'Não foi possível ler os campos do formulário. Atualize a página e tente novamente.';
+      return;
+    }
+
     const normalizedName = name.value.trim().replace(/\s+/g, ' ');
     name.value = normalizedName;
     const hasNameCharacters = /\p{L}/u.test(normalizedName);
