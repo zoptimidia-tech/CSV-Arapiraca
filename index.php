@@ -4,7 +4,7 @@ if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 $csrfToken = $_SESSION['csrf_token'];
-$whatsappNumber = '55829999577602'; // Substitua pelo WhatsApp oficial do polo.
+$whatsappNumber = '5582999999999'; // Substitua pelo WhatsApp oficial do polo.
 $whatsappMessage = rawurlencode('Olá! Quero conhecer os cursos e condições do Polo Arapiraca.');
 ?>
 <!doctype html>
@@ -28,7 +28,7 @@ $whatsappMessage = rawurlencode('Olá! Quero conhecer os cursos e condições do
         <span><strong>Cruzeiro do Sul</strong><small>VIRTUAL · POLO ARAPIRACA</small></span>
       </a>
       <nav class="desktop-nav" aria-label="Navegação principal">
-        <a href="#cursos">Cursos</a><a href="#como-funciona">Como funciona</a><a href="#duvidas">Dúvidas</a>
+        <a href="#polo">O polo</a><a href="#cursos">Cursos</a><a href="#como-funciona">Como funciona</a><a href="#duvidas">Dúvidas</a>
       </nav>
       <a class="button button-small button-outline" href="#formulario">Falar com consultor</a>
     </div>
@@ -65,6 +65,8 @@ $whatsappMessage = rawurlencode('Olá! Quero conhecer os cursos e condições do
     </section>
 
     <section class="proof-strip"><div class="container proof-grid"><div><b>01</b><span>Escolha seu objetivo</span></div><div><b>02</b><span>Receba orientação personalizada</span></div><div><b>03</b><span>Comece no seu ritmo</span></div></div></section>
+
+    <section class="section polo-section" id="polo" aria-labelledby="polo-title"><div class="container polo-grid"><div class="polo-gallery"><figure class="polo-photo polo-photo-main"><img src="assets/polo-fachada.jpg" alt="Fachada do Polo Cruzeiro do Sul Virtual em Arapiraca" loading="lazy"><figcaption>Fachada do Polo Arapiraca</figcaption></figure><div class="polo-photo-row"><figure class="polo-photo"><img src="assets/polo-atendimento.jpg" alt="Espaço de atendimento do Polo Arapiraca" loading="lazy"><figcaption>Atendimento no polo</figcaption></figure><figure class="polo-photo"><img src="assets/polo-estudo.jpg" alt="Espaço de estudo do Polo Arapiraca" loading="lazy"><figcaption>Espaço para orientação</figcaption></figure></div></div><div class="polo-copy"><span class="kicker">PRESENÇA LOCAL</span><h2 id="polo-title">Você pode contar com um polo de verdade.</h2><p>Além da plataforma digital, você tem um ponto de apoio em Arapiraca para tirar dúvidas, receber orientação e acompanhar sua jornada acadêmica.</p><ul class="polo-facts"><li><span>⌖</span><div><strong>Atendimento próximo</strong><small>Fale com uma equipe que conhece a realidade da região.</small></div></li><li><span>✓</span><div><strong>Orientação para sua escolha</strong><small>Entenda cursos, ingresso e condições antes de decidir.</small></div></li><li><span>↗</span><div><strong>Visite o polo</strong><small>Confirme endereço e horário com nosso atendimento.</small></div></li></ul><a class="button button-primary" href="#formulario">Quero conhecer o polo <span>→</span></a><p class="photo-note">As fotos acima devem ser substituídas pelas imagens reais e autorizadas do Polo Arapiraca.</p></div></div></section>
 
     <section class="section" id="cursos"><div class="container"><div class="section-heading"><div><span class="kicker">ESCOLHA SEU PRÓXIMO PASSO</span><h2>Uma formação para cada plano.</h2></div><p>Conheça algumas das áreas mais procuradas e descubra a opção que combina com os seus objetivos.</p></div>
       <div class="course-grid">
