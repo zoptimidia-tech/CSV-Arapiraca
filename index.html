@@ -22,15 +22,64 @@
     <section class="hero"><div class="container hero-grid">
       <div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> Polo local em Arapiraca</div><h1>Sua graduação pode começar <em>agora.</em></h1><p class="hero-subtitle">A flexibilidade do EAD com o suporte humano que faz diferença na sua jornada.</p><div class="hero-points"><span>✓ Estude de onde estiver</span><span>✓ Suporte próximo e humanizado</span><span>✓ Consulte bolsas e condições</span></div><div class="trust-line"><div class="avatars"><span>J</span><span>M</span><span>A</span></div><span><b>+ de 30 anos</b> transformando futuros</span></div></div>
       <div class="form-card" id="formulario"><div class="form-top"><span class="step-label">ATENDIMENTO GRATUITO</span><span class="form-time">◷ 1 min</span></div><h2>Encontre o curso ideal para você</h2><p>Receba orientação sobre cursos, ingresso e condições disponíveis.</p>
-        <form id="lead-form" action="process-lead.php" method="post" novalidate>
-          <input type="hidden" name="csrf_token" id="csrf-token">
-          <div class="field"><label for="name">Seu nome completo</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Como podemos chamar você?" required><small class="error-message"></small></div>
-          <div class="field"><label for="phone">Seu WhatsApp com DDD</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(82) 99999-9999" required><small class="error-message"></small></div>
-          <div class="field"><label for="course">Qual área você quer conhecer?</label><select id="course" name="course" required><option value="">Selecione uma opção</option><option>Pedagogia</option><option>Análise e Desenvolvimento de Sistemas</option><option>Administração</option><option>Nutrição</option><option>Ainda não decidi</option></select><small class="error-message"></small></div>
-          <label class="consent"><input type="checkbox" name="marketing" value="1"><span>Aceito receber novidades e condições por WhatsApp e e-mail. Posso cancelar quando quiser.</span></label>
-          <button class="button button-primary button-full" type="submit">Consultar cursos e condições <span>→</span></button>
-          <p class="privacy-note">Seus dados serão usados para responder ao seu pedido. <a href="#privacidade">Leia nossa política de privacidade.</a></p><div class="form-status" role="status" aria-live="polite"></div>
-        </form>
+      <form id="lead-form">
+        <label for="nome">Nome completo</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          required
+        >
+      
+        <label for="whatsapp">WhatsApp</label>
+        <input
+          type="tel"
+          id="whatsapp"
+          name="whatsapp"
+          required
+        >
+      
+        <label for="email">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+        >
+      
+        <label for="curso">Curso de interesse</label>
+        <select id="curso" name="curso" required>
+          <option value="">Selecione uma opção</option>
+          <option value="Pedagogia">Pedagogia</option>
+          <option value="Análise e Desenvolvimento de Sistemas">
+            Análise e Desenvolvimento de Sistemas
+          </option>
+          <option value="Administração">Administração</option>
+          <option value="Nutrição">Nutrição</option>
+          <option value="Ainda não decidi">
+            Ainda não decidi
+          </option>
+        </select>
+      
+        <!-- Campo invisível contra robôs -->
+        <div class="campo-honeypot" aria-hidden="true">
+          <label for="empresa">Empresa</label>
+          <input
+            type="text"
+            id="empresa"
+            name="honeypot"
+            tabindex="-1"
+            autocomplete="off"
+          >
+        </div>
+      
+        <input type="hidden" name="origem" value="Landing Page Polo Arapiraca">
+      
+        <button type="submit">
+          Consultar cursos e condições
+        </button>
+      
+        <p id="form-status" role="status"></p>
+      </form>
       </div>
     </div></section>
 
